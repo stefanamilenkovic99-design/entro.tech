@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>entro.tech - Sajtovi za male i srednje biznise</title>
+<meta name="description" content="entro.tech pravi sajtove za male i srednje biznise koji žele više klijenata sa interneta.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #DEF085;
+    --accent-dark: #c7db63;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a46;
+    --bg: #fdfdf9;
+    --bg-alt: #f4f4ee;
+    --border: #e2e2d8;
+    --radius: 8px;
+    --max: 1280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--ink);
+    line-height: 1.15;
+    font-weight: 600;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  p { max-width: 65ch; }
+
+  /* ---------- NAVBAR ---------- */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    border: 1px solid var(--accent);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--ink);
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--bg); }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .hamburger span {
+    width: 26px;
+    height: 2px;
+    background: var(--ink);
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    padding-bottom: 24px;
+  }
+
+  .mobile-menu a {
+    font-size: 17px;
+    font-weight: 500;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: var(--ink);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-menu .btn {
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding-top: 96px;
+    padding-bottom: 96px;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    max-width: 760px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-dark);
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero p.lead {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .hero-note {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .hero-visual {
+    margin-top: 56px;
+    height: 340px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-soft);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* ---------- SECTION GENERIC ---------- */
+  section {
+    padding-top: 96px;
+    padding-bottom: 96px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-head {
+    max-width: 640px;
+    margin-bottom: 56px;
+  }
+
+  .section-head .eyebrow { margin-bottom: 14px; }
+
+  .section-head h2 {
+    font-size: 38px;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-head p {
+    color: var(--ink-soft);
+    font-size: 17px;
+  }
+
+  /* ---------- USLUGE ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .service-card {
+    background: var(--bg);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .service-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius);
+    background: var(--bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+  }
+
+  .service-card h3 {
+    font-size: 21px;
+  }
+
+  .service-card p {
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  /* ---------- PROCES ---------- */
+  .process-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+
+  .process-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .process-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    background: var(--accent);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .process-item h3 {
+    font-size: 18px;
+  }
+
+  .process-item p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- RADOVI ---------- */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .work-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .work-thumb {
+    height: 200px;
+    background: var(--bg-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    color: var(--ink-soft);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .work-info {
+    padding: 22px 24px;
+  }
+
+  .work-info h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .work-info p {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- ZASTO MI ---------- */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .why-item h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .why-item p {
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list {
+    max-width: 760px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .faq-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .faq-item p {
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band {
+    background: var(--ink);
+    color: var(--bg);
+    border-top: none;
+  }
+
+  .cta-band h2 {
+    color: var(--bg);
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+
+  .cta-band p {
+    color: #cfcfc8;
+    font-size: 17px;
+    margin-bottom: 32px;
+  }
+
+  .cta-band-inner {
+    max-width: 620px;
+  }
+
+  /* ---------- KONTAKT ---------- */
+  .contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+
+  .contact-info h2 {
+    font-size: 34px;
+    margin-bottom: 18px;
+  }
+
+  .contact-info p {
+    color: var(--ink-soft);
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 15px;
+  }
+
+  .contact-detail strong {
+    font-weight: 600;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  input, textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    padding: 13px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-alt);
+    color: var(--ink);
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-dark);
+  }
+
+  textarea { resize: vertical; min-height: 120px; }
+
+  form .btn {
+    align-self: flex-start;
+    margin-top: 6px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .footer-brand p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-top: 12px;
+    max-width: 36ch;
+  }
+
+  .footer-cols {
+    display: flex;
+    gap: 64px;
+  }
+
+  .footer-col h4 {
+    font-size: 14px;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-col a {
+    display: block;
+    font-size: 14px;
+    color: var(--ink-soft);
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .footer-col a:hover { color: var(--ink); }
+
+  .footer-bottom {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 991px) {
+    .nav-links, .nav-cta-desktop { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu .wrap { padding-left: 0; padding-right: 0; }
+
+    .services-grid { grid-template-columns: 1fr; }
+    .process-list { grid-template-columns: repeat(2, 1fr); }
+    .work-grid { grid-template-columns: 1fr 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .contact-wrap { grid-template-columns: 1fr; }
+    .footer-cols { gap: 40px; }
+  }
+
+  @media (max-width: 768px) {
+    section { padding-top: 64px; padding-bottom: 64px; }
+    .hero { padding-top: 56px; padding-bottom: 56px; }
+    .hero h1 { font-size: 38px; }
+    .hero p.lead { font-size: 16px; }
+    .hero-visual { height: 220px; margin-top: 40px; }
+    .section-head h2 { font-size: 28px; }
+    .process-list { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+    .wrap { padding-left: 20px; padding-right: 20px; }
+    .cta-band h2 { font-size: 28px; }
+    .footer-inner { flex-direction: column; }
+    .footer-cols { gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">entro.tech</a>
+    <nav class="nav-links">
+      <a href="#usluge">Usluge</a>
+      <a href="#proces">Kako radimo</a>
+      <a href="#radovi">Radovi</a>
+      <a href="#faq">Pitanja</a>
+    </nav>
+    <div class="nav-right nav-cta-desktop">
+      <a href="#kontakt" class="btn">Zakaži konsultacije</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="wrap" style="display:flex; flex-direction:column;">
+      <a href="#usluge">Usluge</a>
+      <a href="#proces">Kako radimo</a>
+      <a href="#radovi">Radovi</a>
+      <a href="#faq">Pitanja</a>
+      <a href="#kontakt" class="btn">Zakaži konsultacije</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">entro.tech - web dizajn i razvoj</span>
+    <h1>Sajt koji radi za vas, ne samo stoji na internetu.</h1>
+    <p class="lead">Pravimo sajtove za male i srednje biznise koji žele da ih ljudi nađu, razumeju čime se bave za pet sekundi i onda ih pozovu ili im napišu. Bez šablona koji izgleda kao još hiljadu drugih.</p>
+    <div class="hero-cta-row">
+      <a href="#kontakt" class="btn">Zakaži konsultacije</a>
+      <span class="hero-note">Odgovaramo u roku od dan-dva.</span>
+    </div>
+    <div class="hero-visual" aria-hidden="false">
+      <span>FOTOGRAFIJA / PRIKAZ SAJTA NA RAČUNARU I TELEFONU</span>
+    </div>
+  </div>
+</section>
+
+<section id="usluge">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Šta radimo</span>
+      <h2>Četiri stvari koje pokrivamo, dobro</h2>
+      <p>Ne radimo sve i svašta. Radimo sajtove, i to radimo od početka do kraja - od prve skice do trenutka kad kucate adresu i sajt se učita.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c7db63" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="1"/><path d="M3 9h18"/><path d="M8 20h8"/></svg>
+        </div>
+        <h3>Izrada sajta od nule</h3>
+        <p>Sedamo, pričamo o tome čime se bavite, i pravimo dizajn koji liči na vas, ne na neki generički šablon skinut sa interneta.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c7db63" stroke-width="2"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+        </div>
+        <h3>Redizajn starog sajta</h3>
+        <p>Imate sajt koji izgleda kao da je iz 2014. Sredimo ga, ubrzamo učitavanje i popravimo da radi kako treba na telefonu.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c7db63" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        </div>
+        <h3>Online prodavnica</h3>
+        <p>Postavljamo prodavnicu koja stvarno prodaje - jasan put od proizvoda do korpe, bez suvišnih klikova usput.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c7db63" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Održavanje i podrška</h3>
+        <p>Posle lansiranja ne nestajemo. Javite se kad treba da se promeni cena, doda tekst ili slika, i sredimo to isti dan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proces">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Kako radimo</span>
+      <h2>Četiri koraka, bez iznenađenja</h2>
+      <p>Znate tačno šta se dešava u svakom trenutku, koliko to traje i koliko košta pre nego što bilo šta potpišete.</p>
+    </div>
+    <div class="process-list">
+      <div class="process-item">
+        <div class="process-num">1</div>
+        <h3>Razgovor</h3>
+        <p>Popričamo o tome čime se bavite i šta vam treba. Bez tehničkog žargona, na normalnom jeziku.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-num">2</div>
+        <h3>Predlog i rok</h3>
+        <p>Dobijate konkretan plan, cenu i datum kad je sajt gotov. Piše crno na belo.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-num">3</div>
+        <h3>Dizajn i izrada</h3>
+        <p>Radimo, šaljemo vam napredak usput, a vi kažete šta da promenimo dok je još lako promeniti.</p>
+      </div>
+      <div class="process-item">
+        <div class="process-num">4</div>
+        <h3>Lansiranje</h3>
+        <p>Sajt ide uživo. Pokažemo vam kako da sami menjate tekst i slike ako to poželite.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="radovi">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Radovi</span>
+      <h2>Nekoliko primera onoga što radimo</h2>
+      <p>Ovako izgledaju projekti koje pravimo - od prezentacionih sajtova do online prodavnica.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-thumb">SNIMAK EKRANA: SAJT ZA STOLARSKU RADNJU</div>
+        <div class="work-info">
+          <h3>Stolarska radnja</h3>
+          <p>Prezentacioni sajt sa galerijom radova i formom za upit za mere na licu mesta.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">SNIMAK EKRANA: ONLINE PRODAVNICA KOZMETIKE</div>
+        <div class="work-info">
+          <h3>Prodavnica kozmetike</h3>
+          <p>Prodavnica sa filtriranjem proizvoda po tipu kože i jasnim korakom do plaćanja.</p>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">SNIMAK EKRANA: SAJT ZA FIZIOTERAPEUTSKU ORDINACIJU</div>
+        <div class="work-info">
+          <h3>Fizioterapeutska ordinacija</h3>
+          <p>Sajt sa online zakazivanjem termina i opisom terapija za svaki tip problema.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Zašto mi</span>
+      <h2>Tri stvari koje nas razlikuju</h2>
+      <p>Ne obećavamo čuda. Obećavamo da ćemo raditi ono što smo dogovorili, na vreme.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <h3>Pišete direktno nama</h3>
+        <p>Nema tima od pet ljudi koji prosleđuje vašu poruku dalje. Pišete nama, mi vam odgovaramo.</p>
+      </div>
+      <div class="why-item">
+        <h3>Rok je rok</h3>
+        <p>Kad kažemo da je sajt gotov za tri nedelje, to i mislimo. Ako kasnimo, javljamo se pre roka, ne posle.</p>
+      </div>
+      <div class="why-item">
+        <h3>Objašnjavamo normalnim jezikom</h3>
+        <p>Kad vam kažemo šta radimo i zašto, razumećete to bez guglanja pojmova posle razgovora.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pitanja</span>
+      <h2>Ono što nas ljudi najčešće pitaju</h2>
+      <p>Ako nešto ostane nejasno, pišite nam direktno.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Koliko traje izrada sajta?</h3>
+        <p>Za manji prezentacioni sajt računajte dve do tri nedelje od trenutka kad se dogovorimo oko sadržaja i slika.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Mogu li sam da menjam sadržaj posle?</h3>
+        <p>Da. Postavljamo sistem gde možete da promenite tekst, cene i slike bez ijedne linije koda.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Šta ako već imam sajt?</h3>
+        <p>Pogledamo šta imate i kažemo iskreno da li ima smisla da ga sredimo ili da krenemo ispočetka.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Koliko košta izrada sajta?</h3>
+        <p>Zavisi od obima posla. Posle prvog razgovora šaljemo tačnu ponudu, bez sitnih slova i naknadnih iznenađenja.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <h2>Popričajmo o vašem sajtu</h2>
+      <p>Zakažite kratak poziv od dvadesetak minuta. Bez obaveze da odmah nešto potpišete.</p>
+      <a href="#kontakt" class="btn">Zakaži poziv</a>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap contact-wrap">
+    <div class="contact-info">
+      <h2>Pošaljite upit</h2>
+      <p>Napišite nam par rečenica o tome čime se bavite i šta vam treba. Javljamo se u roku od dan-dva.</p>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c7db63" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg>
+        <span><strong>Email:</strong> zdravo@entro.tech</span>
+      </div>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c7db63" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.1a2 2 0 0 1 2.1-.5c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2z"/></svg>
+        <span><strong>Telefon:</strong> 060 123 4567</span>
+      </div>
+      <div class="contact-detail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c7db63" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span><strong>Sedište:</strong> Beograd, Srbija</span>
+      </div>
+    </div>
+    <form action="#" method="post">
+      <div class="form-row">
+        <label for="ime">Ime i prezime</label>
+        <input type="text" id="ime" name="ime" placeholder="Vaše ime" required>
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="vasa@email.com" required>
+      </div>
+      <div class="form-row">
+        <label for="telefon">Telefon (opciono)</label>
+        <input type="tel" id="telefon" name="telefon" placeholder="060 123 4567">
+      </div>
+      <div class="form-row">
+        <label for="poruka">Poruka</label>
+        <textarea id="poruka" name="poruka" placeholder="Recite nam nešto o vašem biznisu i šta vam treba od sajta." required></textarea>
+      </div>
+      <button type="submit" class="btn">Pošalji upit</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">entro.tech</div>
+        <p>Pravimo sajtove za male i srednje biznise koji žele više klijenata sa interneta.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Stranica</h4>
+          <a href="#usluge">Usluge</a>
+          <a href="#proces">Kako radimo</a>
+          <a href="#radovi">Radovi</a>
+          <a href="#faq">Pitanja</a>
+        </div>
+        <div class="footer-col">
+          <h4>Kontakt</h4>
+          <a href="#kontakt">Pošalji upit</a>
+          <a href="#">zdravo@entro.tech</a>
+          <a href="#">060 123 4567</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 entro.tech. Sva prava zadržana.</span>
+      <span>Beograd, Srbija</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburgerBtn.addEventListener('click', function () {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
