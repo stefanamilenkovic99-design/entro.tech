@@ -1155,48 +1155,234 @@
     color: var(--ink-soft);
   }
 
-  /* ---------- RADOVI ---------- */
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+  /* ---------- RADOVI (horizontalni pin) ---------- */
+  #radovi {
+    background: #fff;
+    padding-bottom: 0;
   }
 
-  .work-card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+  .wk-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 10px;
+  }
+
+  .wk-head h2 {
+    margin-top: 14px;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink-900);
+    max-width: 22ch;
+  }
+
+  .wk-head h2 .name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  .wk-head h2 .spark {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-left: 3px;
+    vertical-align: 21px;
+    color: var(--orange);
+  }
+
+  .wk-note {
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    color: #8a8a82;
+    max-width: 40ch;
+    justify-self: end;
+    padding-bottom: 6px;
+  }
+
+  /* traka koja se pomera dok je sekcija zakucana */
+  .wk-pin {
+    --card-w: min(80vw, 440px);
+    --card-h: min(calc(100svh - 200px), 600px);
+    position: relative;
+    height: 340vh;
+  }
+
+  .wk-sticky {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 78px;
+  }
+
+  .wk-track {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 2vw, 30px);
+    padding: 0 24px;
+    will-change: transform;
+  }
+
+  .wk-card {
+    flex: 0 0 auto;
+    width: var(--card-w);
+    height: var(--card-h);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: #f5f5f2;
+    border-radius: 18px;
+    padding: 16px 20px 22px;
+    transition: background 0.3s ease;
+  }
+
+  .wk-media {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    border-radius: 12px;
+    background: var(--ph-bg);
+    border: 1px dashed var(--ph-line);
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7d7d73;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .wk-go {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #e2e2d8;
+    color: var(--ink-900);
+    display: grid;
+    place-items: center;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .wk-card:hover .wk-media {
+    border-color: var(--orange);
+    background: #ececE4;
+  }
+
+  .wk-card:hover .wk-go {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+  }
+
+  .wk-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: baseline;
+    border-top: 1px solid #e2e2d8;
+    padding-top: 14px;
+    height: 74px;
+    flex: 0 0 auto;
     overflow: hidden;
   }
 
-  .work-thumb {
-    height: 200px;
-    background: var(--bg-alt);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-left: 16px;
-    padding-right: 16px;
-    color: var(--ink-soft);
-    font-size: 13px;
+  .wk-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink-900);
+  }
+
+  .wk-index {
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    color: var(--orange);
+    vertical-align: super;
+    margin-left: 6px;
+    letter-spacing: 0.1em;
+  }
+
+  .wk-stack {
+    flex: none;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--border);
+    color: #8a8a82;
+    text-align: right;
+    line-height: 1.9;
   }
 
-  .work-info {
-    padding: 22px 24px;
-  }
-
-  .work-info h3 {
-    font-size: 17px;
-    margin-bottom: 6px;
-  }
-
-  .work-info p {
+  .wk-desc {
+    height: 70px;
+    flex: 0 0 auto;
+    margin: 0;
+    max-width: none;
     font-size: 14px;
+    line-height: 1.65;
     color: var(--ink-soft);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .wk-next {
+    flex: 0 0 auto;
+    width: min(70vw, 360px);
+    height: var(--card-h);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 14px;
+    border-left: 1px solid #e2e2d8;
+    padding-left: clamp(18px, 2vw, 34px);
+    padding-bottom: 96px;
+  }
+
+  .wk-next-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+  }
+
+  .wk-next-text {
+    margin: 0;
+    max-width: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink-900);
+  }
+
+  /* bez animacije: traka postaje obican horizontalni skrol */
+  @media (prefers-reduced-motion: reduce) {
+    .wk-pin { height: auto; }
+    .wk-sticky {
+      position: static;
+      height: auto;
+      overflow-x: auto;
+      padding-top: 0;
+    }
+    .wk-track { transform: none !important; }
   }
 
   /* ---------- ZASTO MI ---------- */
@@ -1427,7 +1613,10 @@
     .svc-head .svc-intro { justify-self: start; padding-bottom: 0; }
     .svc-head h2 { font-size: 34px; }
     .process-list { grid-template-columns: repeat(2, 1fr); }
-    .work-grid { grid-template-columns: 1fr 1fr; }
+    .wk-head { grid-template-columns: 1fr; align-items: start; gap: 18px; }
+    .wk-head h2 { font-size: 34px; }
+    .wk-note { justify-self: start; padding-bottom: 0; }
+    .wk-pin { height: 300vh; --card-w: min(84vw, 380px); }
     .why-grid { grid-template-columns: 1fr; }
     .contact-wrap { grid-template-columns: 1fr; }
     .footer-cols { gap: 40px; }
@@ -1449,7 +1638,16 @@
     .marquee-item { font-size: 20px; padding: 0 20px; }
     .section-head h2 { font-size: 28px; }
     .process-list { grid-template-columns: 1fr; }
-    .work-grid { grid-template-columns: 1fr; }
+    .wk-head h2 { font-size: 28px; }
+    .wk-pin { height: 260vh; --card-w: 82vw; --card-h: min(calc(100svh - 160px), 520px); }
+    .wk-sticky { padding-top: 68px; }
+    .wk-track { gap: 14px; padding: 0 20px; }
+    .wk-card { padding: 14px 16px 18px; }
+    .wk-name { font-size: 20px; }
+    .wk-meta { height: 66px; padding-top: 12px; }
+    .wk-desc { font-size: 13px; height: 64px; }
+    .wk-next { width: 76vw; padding-bottom: 80px; }
+    .wk-next-text { font-size: 22px; }
     .about-text h2 { font-size: 28px; }
     .about-frame { --ph-w: 104px; --ph-h: 226px; --arch-w: 316px; --arch-h: 258px; height: 320px; }
     .about-card { padding-left: 14px; }
@@ -1748,32 +1946,75 @@
 </section>
 
 <section id="radovi">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Radovi</span>
-      <h2>Nekoliko primera onoga što radimo</h2>
-      <p>Ovako izgledaju projekti koje pravimo - od prezentacionih sajtova do online prodavnica.</p>
+  <div class="wrap wk-head">
+    <div>
+      <p class="svc-eyebrow">Odabrani radovi</p>
+      <h2><span class="name">Pet sajtova</span> i šta je svaki morao da reši<svg class="spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg></h2>
     </div>
-    <div class="work-grid">
-      <div class="work-card">
-        <div class="work-thumb">SNIMAK EKRANA: SAJT ZA STOLARSKU RADNJU</div>
-        <div class="work-info">
-          <h3>Stolarska radnja</h3>
-          <p>Prezentacioni sajt sa galerijom radova i formom za upit za mere na licu mesta.</p>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb">SNIMAK EKRANA: ONLINE PRODAVNICA KOZMETIKE</div>
-        <div class="work-info">
-          <h3>Prodavnica kozmetike</h3>
-          <p>Prodavnica sa filtriranjem proizvoda po tipu kože i jasnim korakom do plaćanja.</p>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-thumb">SNIMAK EKRANA: SAJT ZA FIZIOTERAPEUTSKU ORDINACIJU</div>
-        <div class="work-info">
-          <h3>Fizioterapeutska ordinacija</h3>
-          <p>Sajt sa online zakazivanjem termina i opisom terapija za svaki tip problema.</p>
+    <p class="wk-note">Skrolujte i traka se pomera. Strane po projektu stižu uskoro.</p>
+  </div>
+
+  <div class="wk-pin">
+    <div class="wk-sticky">
+      <div class="wk-track">
+        <a href="#kontakt" class="wk-card">
+          <div class="wk-media">
+            <span>Snimak ekrana: Auto škola Dule</span>
+            <span class="wk-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"></line><polyline points="8 6 18 6 18 16"></polyline></svg></span>
+          </div>
+          <div class="wk-meta">
+            <span class="wk-name">Auto škola Dule<span class="wk-index">01</span></span>
+            <span class="wk-stack">Prezentacioni sajt<br>Upis i probni čas</span>
+          </div>
+          <p class="wk-desc">Osam kategorija obuke na jednom sajtu. Roditelj i osamnaestogodišnjak moraju za pet sekundi da vide cenu i kako se upisuje.</p>
+        </a>
+        <a href="#kontakt" class="wk-card">
+          <div class="wk-media">
+            <span>Snimak ekrana: Pet Land</span>
+            <span class="wk-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"></line><polyline points="8 6 18 6 18 16"></polyline></svg></span>
+          </div>
+          <div class="wk-meta">
+            <span class="wk-name">Pet Land<span class="wk-index">02</span></span>
+            <span class="wk-stack">Veterinarska ambulanta<br>Beograd, Vidikovac</span>
+          </div>
+          <p class="wk-desc">Vlasnik traži veterinara kad je pas već bolestan. Broj telefona i radno vreme moraju da stoje na svakom ekranu.</p>
+        </a>
+        <a href="#kontakt" class="wk-card">
+          <div class="wk-media">
+            <span>Snimak ekrana: Medar stolarija</span>
+            <span class="wk-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"></line><polyline points="8 6 18 6 18 16"></polyline></svg></span>
+          </div>
+          <div class="wk-meta">
+            <span class="wk-name">Medar stolarija<span class="wk-index">03</span></span>
+            <span class="wk-stack">Nameštaj po meri<br>Smederevo, od 1990.</span>
+          </div>
+          <p class="wk-desc">Porodična radnja koja radi po meri. Sajt mora da pokaže radove, jer se kuhinja ne kupuje iz kataloga.</p>
+        </a>
+        <a href="#kontakt" class="wk-card">
+          <div class="wk-media">
+            <span>Snimak ekrana: Riva Atelier</span>
+            <span class="wk-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"></line><polyline points="8 6 18 6 18 16"></polyline></svg></span>
+          </div>
+          <div class="wk-meta">
+            <span class="wk-name">Riva Atelier<span class="wk-index">04</span></span>
+            <span class="wk-stack">Iznajmljivanje haljina<br>Rezervacija termina</span>
+          </div>
+          <p class="wk-desc">Devojka bira haljinu za maturu na telefonu, uveče. Kolekcija mora da se pregleda palcem, a termin da se rezerviše iz dva klika.</p>
+        </a>
+        <a href="#kontakt" class="wk-card">
+          <div class="wk-media">
+            <span>Snimak ekrana: Foto Jocković</span>
+            <span class="wk-go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"></line><polyline points="8 6 18 6 18 16"></polyline></svg></span>
+          </div>
+          <div class="wk-meta">
+            <span class="wk-name">Foto Jocković<span class="wk-index">05</span></span>
+            <span class="wk-stack">Foto radnja<br>Beograd</span>
+          </div>
+          <p class="wk-desc">Slike za dokumenta, štampa i uramljivanje. Ljudi traže adresu i da li se radi za taj dan, i to je prvo što piše.</p>
+        </a>
+        <div class="wk-next">
+          <span class="wk-next-label">Sledeće</span>
+          <p class="wk-next-text">Strana po projektu: šta je vlasnik gubio, šta smo promenili i kako izgleda sada.</p>
         </div>
       </div>
     </div>
@@ -1920,6 +2161,31 @@
     const isOpen = mobileMenu.classList.toggle('open');
     hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
+
+  const wkPin = document.querySelector('.wk-pin');
+  const wkTrack = document.querySelector('.wk-track');
+  const wkReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (wkPin && wkTrack && !wkReduce) {
+    let queued = false;
+
+    const wkUpdate = function () {
+      queued = false;
+      const span = wkPin.offsetHeight - window.innerHeight;
+      const raw = span > 0 ? -wkPin.getBoundingClientRect().top / span : 0;
+      const p = Math.min(1, Math.max(0, raw));
+      const dist = Math.max(0, wkTrack.scrollWidth - window.innerWidth + 48);
+      wkTrack.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
+    };
+
+    const wkOnScroll = function () {
+      if (!queued) { queued = true; requestAnimationFrame(wkUpdate); }
+    };
+
+    window.addEventListener('scroll', wkOnScroll, { passive: true });
+    window.addEventListener('resize', wkOnScroll);
+    wkUpdate();
+  }
 
   document.querySelectorAll('.svc-trigger').forEach(function (trigger) {
     trigger.addEventListener('click', function () {
