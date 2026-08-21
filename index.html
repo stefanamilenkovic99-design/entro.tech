@@ -6,7 +6,8 @@
 <title>entro.tech - Sajtovi za male i srednje biznise</title>
 <meta name="description" content="entro.tech pravi sajtove za male i srednje biznise koji žele više klijenata sa interneta.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
     --accent: #DEF085;
@@ -18,6 +19,15 @@
     --border: #e2e2d8;
     --radius: 8px;
     --max: 1280px;
+
+    /* --- navbar + hero (novi dizajn) --- */
+    --orange: #FF4A17;
+    --orange-dark: #e83f0f;
+    --ink-900: #111111;
+    --hero-bg: #f6f6f3;
+    --hero-line: #e6e6df;
+    --ph-bg: #e9e9e2;
+    --ph-line: #c9c9bd;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -60,16 +70,42 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
+    padding-top: 16px;
+    padding-bottom: 4px;
   }
 
   .nav-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    gap: 24px;
+    background: #ffffff;
+    border: 1px solid var(--hero-line);
+    border-radius: 999px;
+    padding: 9px 9px 9px 20px;
+    box-shadow: 0 8px 26px rgba(17, 17, 17, 0.07);
+  }
+
+  .nav-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .logo {
@@ -81,7 +117,7 @@
 
   .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 30px;
     align-items: center;
   }
 
@@ -89,15 +125,38 @@
     font-size: 15px;
     font-weight: 500;
     color: var(--ink-soft);
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
   }
 
   .nav-links a:hover { color: var(--ink); }
+
+  .nav-links a.active {
+    color: var(--orange);
+    border-bottom-color: var(--orange);
+  }
 
   .nav-right {
     display: flex;
     align-items: center;
     gap: 32px;
   }
+
+  .btn-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink-900);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 26px;
+    border-radius: 999px;
+    border: 1px solid var(--ink-900);
+    white-space: nowrap;
+  }
+
+  .btn-dark:hover { background: var(--orange); border-color: var(--orange); }
 
   .btn {
     display: inline-block;
@@ -141,9 +200,12 @@
     display: none;
     flex-direction: column;
     gap: 4px;
-    border-top: 1px solid var(--border);
-    padding-top: 20px;
-    padding-bottom: 24px;
+    margin-top: 10px;
+    background: #fff;
+    border: 1px solid var(--hero-line);
+    border-radius: 22px;
+    box-shadow: 0 8px 26px rgba(17, 17, 17, 0.07);
+    padding: 8px 22px 22px;
   }
 
   .mobile-menu a {
@@ -155,87 +217,411 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .mobile-menu .btn {
-    margin-top: 16px;
-    text-align: center;
+  .mobile-menu .btn-dark {
+    margin-top: 18px;
+    justify-content: center;
   }
 
   .mobile-menu.open { display: flex; }
 
   /* ---------- HERO ---------- */
   .hero {
-    padding-top: 96px;
-    padding-bottom: 96px;
+    position: relative;
+    padding-top: 34px;
+    padding-bottom: 0;
+    background-color: var(--hero-bg);
+    background-image:
+      linear-gradient(var(--hero-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hero-line) 1px, transparent 1px);
+    background-size: 78px 78px;
+    overflow: hidden;
   }
 
   .hero-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    max-width: 760px;
+    position: relative;
+    display: block;
+    max-width: var(--max);
   }
 
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--ink-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  .eyebrow::before {
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent-dark);
-    display: inline-block;
-  }
-
-  .hero h1 {
-    font-size: 56px;
-    letter-spacing: -0.02em;
-  }
-
-  .hero p.lead {
-    font-size: 18px;
-    color: var(--ink-soft);
-    max-width: 60ch;
-  }
-
-  .hero-cta-row {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 8px;
-  }
-
-  .hero-note {
-    font-size: 14px;
-    color: var(--ink-soft);
-  }
-
-  .hero-visual {
-    margin-top: 56px;
-    height: 340px;
-    background: var(--bg-alt);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+  /* --- pozdrav + naslov --- */
+  .hero-hello {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--ink-soft);
-    font-size: 14px;
+    gap: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
     font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    color: var(--ink-900);
+    max-width: none;
+  }
+
+  .hero-hello::before {
+    content: "";
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--orange);
+    flex: none;
+  }
+
+  .hero h1 {
+    margin-top: 12px;
     text-align: center;
-    padding-left: 16px;
-    padding-right: 16px;
+    font-size: 84px;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--ink-900);
+  }
+
+  .hero h1 .name {
+    position: relative;
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+    letter-spacing: -0.005em;
+    padding-right: 6px;
+  }
+
+  .hero h1 .spark {
+    position: absolute;
+    top: 6px;
+    right: -18px;
+    width: 22px;
+    height: 22px;
+    color: var(--ink-900);
+  }
+
+  .hero-sub {
+    margin: 14px auto 0;
+    max-width: 46ch;
+    text-align: center;
+    font-size: 17px;
+    color: var(--ink-soft);
+  }
+
+  /* --- rotirajuci bedz gore desno --- */
+  .hero-badge {
+    position: absolute;
+    top: 0;
+    right: 24px;
+    width: 118px;
+    height: 118px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    border: 1px solid var(--hero-line);
+    border-radius: 50%;
+    z-index: 4;
+  }
+
+  .hero-badge .ring {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: badge-spin 16s linear infinite;
+  }
+
+  .hero-badge .ring text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    fill: var(--ink-900);
+  }
+
+  .hero-badge .badge-core {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    display: grid;
+    place-items: center;
+  }
+
+  .hero-badge .badge-core:hover { background: var(--orange-dark); }
+
+  @keyframes badge-spin { to { transform: rotate(360deg); } }
+
+  /* --- scena: citat | fotografije | tagovi --- */
+  .hero-stage {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 28px;
+  }
+
+  .hero-figure {
+    --ph-w: 194px;
+    --ph-h: 352px;
+    --arch-w: 620px;
+    --arch-h: 330px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: var(--ph-h);
+  }
+
+  .hero-arch {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--arch-w);
+    height: var(--arch-h);
+    border-radius: calc(var(--arch-w) / 2) calc(var(--arch-w) / 2) 20px 20px;
+    background-color: var(--orange);
+    background-image: repeating-radial-gradient(circle at 50% 68%, rgba(255,255,255,0.11) 0 2px, rgba(255,255,255,0) 2px 17px);
+  }
+
+  .hero-photos {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 18px;
+    z-index: 2;
+  }
+
+  .photo-ph {
+    width: var(--ph-w);
+    height: var(--ph-h);
+    border-radius: calc(var(--ph-w) / 2) calc(var(--ph-w) / 2) 10px 10px;
+    background: var(--ph-bg);
+    border: 1px dashed var(--ph-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #7d7d73;
+  }
+
+  .hero-actions {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 14px;
+    z-index: 3;
+  }
+
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 11px 12px 11px 26px;
+    white-space: nowrap;
+  }
+
+  .btn-pill.dark {
+    background: var(--ink-900);
+    color: #fff;
+    border: 1px solid var(--ink-900);
+  }
+
+  .btn-pill.light {
+    background: #fff;
+    color: var(--ink-900);
+    border: 1px solid #dcdcd2;
+    padding: 11px 26px;
+  }
+
+  .btn-pill.light:hover { border-color: var(--ink-900); }
+
+  .btn-pill .arrow {
+    width: 30px;
+    height: 30px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    display: grid;
+    place-items: center;
+  }
+
+  .btn-pill.dark:hover .arrow { background: #fff; color: var(--ink-900); }
+
+  /* --- citat levo --- */
+  .hero-quote {
+    position: absolute;
+    left: 0;
+    bottom: 62px;
+    width: 258px;
+    z-index: 3;
+  }
+
+  .hero-quote .quote-mark {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 0.7;
+    color: var(--orange);
+  }
+
+  .hero-quote p {
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: none;
+  }
+
+  .avatars {
+    display: flex;
+    margin-top: 24px;
+  }
+
+  .avatars span {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--ph-bg);
+    border: 2px solid var(--hero-bg);
+    margin-left: -11px;
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #7d7d73;
+  }
+
+  .avatars span:first-child { margin-left: 0; }
+
+  .rating {
+    margin-top: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--orange);
+  }
+
+  .rating b { color: var(--ink-900); }
+
+  .rating-note {
+    font-size: 12px;
+    color: #82827a;
+  }
+
+  /* --- tagovi desno --- */
+  .hero-tags {
+    position: absolute;
+    right: 0;
+    top: 26px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    z-index: 3;
+  }
+
+  .tag-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .tag-dark { background: var(--ink-900); color: #fff; }
+  .tag-orange { background: var(--orange); color: #fff; }
+
+  .tag-spark {
+    width: 22px;
+    height: 22px;
+    flex: none;
+    color: var(--orange);
+  }
+
+  /* --- drustvene mreze desno dole --- */
+  .hero-social {
+    position: absolute;
+    right: 0;
+    bottom: 62px;
+    text-align: right;
+    z-index: 3;
+  }
+
+  .hero-social .social-label {
+    font-size: 13px;
+    color: #82827a;
+  }
+
+  .social-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .social-row a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--ink-900);
+    color: #fff;
+    display: grid;
+    place-items: center;
+  }
+
+  .social-row a:hover { background: var(--orange); }
+
+  /* --- crna traka koja klizi --- */
+  .marquee {
+    background: var(--ink-900);
+    overflow: hidden;
+    padding: 18px 0;
+  }
+
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+  }
+
+  .marquee-item {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    padding: 0 30px;
+    white-space: nowrap;
+  }
+
+  .marquee-sep {
+    width: 22px;
+    height: 22px;
+    flex: none;
+    color: var(--orange);
+  }
+
+  @keyframes marquee { to { transform: translateX(-50%); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track, .hero-badge .ring { animation: none; }
   }
 
   /* ---------- SECTION GENERIC ---------- */
@@ -570,10 +956,35 @@
   }
 
   /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1200px) {
+    .hero h1 { font-size: 68px; }
+    .hero-quote { width: 210px; }
+    .hero-tags { width: 250px; }
+    .hero-figure { --ph-w: 168px; --ph-h: 300px; --arch-w: 540px; --arch-h: 286px; }
+  }
+
   @media (max-width: 991px) {
     .nav-links, .nav-cta-desktop { display: none; }
     .hamburger { display: flex; }
-    .mobile-menu .wrap { padding-left: 0; padding-right: 0; }
+
+    .hero-badge { position: relative; top: auto; right: auto; margin: 0 auto 18px; }
+    .hero h1 { font-size: 52px; }
+    .hero h1 .spark { width: 18px; height: 18px; right: -16px; }
+    .hero-stage { flex-direction: column; align-items: center; gap: 34px; margin-top: 34px; }
+    .hero-quote, .hero-tags, .hero-social {
+      position: static;
+      width: 100%;
+      max-width: 460px;
+      text-align: center;
+    }
+    .hero-quote { order: 3; }
+    .hero-tags { order: 2; align-items: center; }
+    .hero-figure { order: 1; --ph-w: 152px; --ph-h: 272px; --arch-w: 480px; --arch-h: 256px; }
+    .hero-social { order: 4; text-align: center; }
+    .hero-quote p { margin-left: auto; margin-right: auto; }
+    .avatars, .social-row { justify-content: center; }
+    .avatars { justify-content: center; }
+    .tag-row { flex-wrap: wrap; justify-content: center; }
 
     .services-grid { grid-template-columns: 1fr; }
     .process-list { grid-template-columns: repeat(2, 1fr); }
@@ -585,10 +996,18 @@
 
   @media (max-width: 768px) {
     section { padding-top: 64px; padding-bottom: 64px; }
-    .hero { padding-top: 56px; padding-bottom: 56px; }
+    .hero { padding-top: 22px; padding-bottom: 0; }
     .hero h1 { font-size: 38px; }
-    .hero p.lead { font-size: 16px; }
-    .hero-visual { height: 220px; margin-top: 40px; }
+    .hero-hello { font-size: 17px; }
+    .hero-sub { font-size: 15px; }
+    .hero-figure { --ph-w: 116px; --ph-h: 212px; --arch-w: 360px; --arch-h: 200px; }
+    .hero-photos { gap: 10px; }
+    .photo-ph { font-size: 10px; padding: 0 8px; }
+    .hero-actions { bottom: 14px; gap: 10px; }
+    .btn-pill { font-size: 14px; padding: 9px 10px 9px 20px; }
+    .btn-pill.light { padding: 9px 20px; }
+    .btn-pill .arrow { width: 26px; height: 26px; }
+    .marquee-item { font-size: 20px; padding: 0 20px; }
     .section-head h2 { font-size: 28px; }
     .process-list { grid-template-columns: 1fr; }
     .work-grid { grid-template-columns: 1fr; }
@@ -603,15 +1022,19 @@
 
 <header class="navbar">
   <div class="wrap nav-inner">
-    <a href="#" class="logo">entro.tech</a>
+    <a href="#" class="nav-brand">
+      <span class="logo-mark" aria-hidden="true">e</span>
+      <span class="logo">entro.tech</span>
+    </a>
     <nav class="nav-links">
+      <a href="#" class="active">Početna</a>
       <a href="#usluge">Usluge</a>
       <a href="#proces">Kako radimo</a>
       <a href="#radovi">Radovi</a>
       <a href="#faq">Pitanja</a>
     </nav>
     <div class="nav-right nav-cta-desktop">
-      <a href="#kontakt" class="btn">Zakaži konsultacije</a>
+      <a href="#kontakt" class="btn-dark">Zakaži konsultacije</a>
     </div>
     <button class="hamburger" id="hamburgerBtn" aria-label="Otvori meni" aria-expanded="false">
       <span></span>
@@ -619,29 +1042,92 @@
       <span></span>
     </button>
   </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="wrap" style="display:flex; flex-direction:column;">
+  <div class="wrap">
+    <div class="mobile-menu" id="mobileMenu">
       <a href="#usluge">Usluge</a>
       <a href="#proces">Kako radimo</a>
       <a href="#radovi">Radovi</a>
       <a href="#faq">Pitanja</a>
-      <a href="#kontakt" class="btn">Zakaži konsultacije</a>
+      <a href="#kontakt" class="btn-dark">Zakaži konsultacije</a>
     </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap hero-inner">
-    <span class="eyebrow">entro.tech - web dizajn i razvoj</span>
-    <h1>Sajt koji radi za vas, ne samo stoji na internetu.</h1>
-    <p class="lead">Pravimo sajtove za male i srednje biznise koji žele da ih ljudi nađu, razumeju čime se bave za pet sekundi i onda ih pozovu ili im napišu. Bez šablona koji izgleda kao još hiljadu drugih.</p>
-    <div class="hero-cta-row">
-      <a href="#kontakt" class="btn">Zakaži konsultacije</a>
-      <span class="hero-note">Odgovaramo u roku od dan-dva.</span>
+
+    <div class="hero-badge">
+      <svg class="ring" viewBox="0 0 120 120" aria-hidden="true">
+        <defs>
+          <path id="badgeRing" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"></path>
+        </defs>
+        <text><textPath href="#badgeRing" startOffset="0">PIŠI NAM • PIŠI NAM • PIŠI NAM • </textPath></text>
+      </svg>
+      <a href="#kontakt" class="badge-core" aria-label="Zakaži konsultacije"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"></line><polyline points="8 6 18 6 18 16"></polyline></svg></a>
     </div>
-    <div class="hero-visual" aria-hidden="false">
-      <span>FOTOGRAFIJA / PRIKAZ SAJTA NA RAČUNARU I TELEFONU</span>
+
+    <p class="hero-hello">Zdravo!</p>
+    <h1>Mi smo <span class="name">entro.tech<svg class="spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg></span></h1>
+    <p class="hero-sub">Web dizajn i razvoj iz Beograda</p>
+
+    <div class="hero-stage">
+
+      <div class="hero-quote">
+        <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+        <p>Sajt koji su nam napravili konačno objašnjava čime se bavimo — upiti su počeli da stižu prve nedelje.</p>
+        <div class="avatars" aria-hidden="true">
+          <span>MJ</span>
+          <span>AS</span>
+          <span>NP</span>
+          <span>DK</span>
+        </div>
+        <div class="rating">40+ projekata <b>(4.9 od 5)</b></div>
+        <div class="rating-note">Ocene zadovoljnih klijenata</div>
+      </div>
+
+      <div class="hero-tags">
+        <div class="tag-row">
+          <span class="tag tag-dark">Web dizajn</span>
+          <span class="tag tag-orange">Onlajn prodavnice</span>
+        </div>
+        <div class="tag-row">
+          <svg class="tag-spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg>
+          <span class="tag tag-dark">Sajtovi po meri</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-orange">SEO</span>
+          <span class="tag tag-dark">Održavanje</span>
+        </div>
+      </div>
+
+      <div class="hero-figure">
+        <div class="hero-arch" aria-hidden="true"></div>
+        <div class="hero-photos">
+          <div class="photo-ph"><span>Fotografija 1</span></div>
+          <div class="photo-ph"><span>Fotografija 2</span></div>
+        </div>
+        <div class="hero-actions">
+          <a href="#radovi" class="btn-pill dark">Radovi <span class="arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="18" x2="18" y2="6"></line><polyline points="8 6 18 6 18 16"></polyline></svg></span></a>
+          <a href="#kontakt" class="btn-pill light">Zakaži konsultacije</a>
+        </div>
+      </div>
+
+      <div class="hero-social">
+        <span class="social-label">Pratite nas</span>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 8.2h-2a1 1 0 0 0-1 1v2.1h3l-.4 3h-2.6V22H9.4v-7.7H7.2v-3h2.2V9.2A4.2 4.2 0 0 1 13.6 5h1.9z"/></svg></a>
+          <a href="#" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.2 3h4.4l4 5.6L16.4 3h3.6l-6.2 7.6L21 21h-4.4l-4.3-6-5.1 6H3.6l6.8-8.1z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"></circle></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 4.9a1.95 1.95 0 1 1-3.9 0 1.95 1.95 0 0 1 3.9 0zM3.3 8.6h3.3V21H3.3zm6.4 0h3.1v1.7c.5-.9 1.8-1.9 3.6-1.9 2.7 0 4.6 1.7 4.6 5.3V21h-3.3v-6.7c0-1.8-.7-2.8-2.2-2.8-1.3 0-2 .8-2.3 1.7-.1.3-.2.7-.2 1.1V21H9.7z"/></svg></a>
+        </div>
+      </div>
+
     </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Web dizajn</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Onlajn prodavnice</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Sajtovi po meri</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">SEO</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Održavanje</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Web dizajn</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Onlajn prodavnice</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Sajtovi po meri</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">SEO</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Održavanje</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg></div>
   </div>
 </section>
 
