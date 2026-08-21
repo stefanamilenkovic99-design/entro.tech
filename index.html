@@ -2148,61 +2148,195 @@
 
   .ct-social-row a:hover { background: var(--ink-900); color: #fff; }
 
-  /* ---------- FOOTER ---------- */
+  /* ---------- FUTER ---------- */
   footer {
-    border-top: 1px solid var(--border);
-    padding-top: 56px;
-    padding-bottom: 56px;
+    background: #fff;
+    border-top: none;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
-  .footer-inner {
+  .ft-top {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    gap: 32px;
+    padding-top: 48px;
+    padding-bottom: 34px;
+  }
+
+  .ft-top h2 {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink-900);
+  }
+
+  .ft-top h2 .name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  .ft-cols {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
     gap: 40px;
+    border-top: 1px solid #e6e6de;
+    padding-top: 38px;
+    padding-bottom: 44px;
   }
 
-  .footer-brand p {
-    color: var(--ink-soft);
-    font-size: 14px;
-    margin-top: 12px;
-    max-width: 36ch;
+  .ft-col h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--orange);
+    margin-bottom: 16px;
   }
 
-  .footer-cols {
-    display: flex;
-    gap: 64px;
-  }
-
-  .footer-col h4 {
-    font-size: 14px;
-    margin-bottom: 14px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .footer-col a {
+  .ft-col a,
+  .ft-col span {
     display: block;
     font-size: 14px;
-    color: var(--ink-soft);
+    line-height: 1.6;
+    color: #82827a;
     padding-top: 6px;
     padding-bottom: 6px;
   }
 
-  .footer-col a:hover { color: var(--ink); }
+  .ft-col a:hover { color: var(--ink-900); }
 
-  .footer-bottom {
-    margin-top: 48px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
+  .ft-about {
+    margin-top: 16px;
+    max-width: 34ch;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #82827a;
+  }
+
+  /* --- brend --- */
+  .ft-col a.ft-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+  }
+
+  .ft-col .ft-brand .logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    font-size: 19px;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .ft-col .ft-brand .logo {
+    display: inline;
+    padding: 0;
+    font-size: 22px;
+    color: var(--ink-900);
+  }
+
+  /* --- mreze --- */
+  .ft-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .ft-col .ft-social a {
+    width: 36px;
+    height: 36px;
+    flex: none;
+    padding: 0;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    display: grid;
+    place-items: center;
+  }
+
+  .ft-col .ft-social a:hover { background: var(--ink-900); color: #fff; }
+
+  .ft-form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f5f5f2;
+    border: 1px solid #e6e6de;
+    border-radius: 999px;
+    padding: 5px 5px 5px 18px;
+    max-width: 290px;
+  }
+
+  .ft-form input {
+    flex: 1 1 auto;
+    min-width: 0;
+    border: none;
+    background: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--ink-900);
+  }
+
+  .ft-form input::placeholder { color: #a8a8a0; }
+  .ft-form input:focus { outline: none; }
+
+  .ft-form button {
+    width: 38px;
+    height: 38px;
+    flex: none;
+    border: none;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  .ft-form button:hover { background: var(--ink-900); }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .ft-bar {
+    background: var(--ink-900);
+    color: #fff;
+  }
+
+  .ft-bar-inner {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 12px;
-    font-size: 13px;
-    color: var(--ink-soft);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
   }
+
+  .ft-bar b {
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  .ft-bar a:hover { color: var(--orange); }
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 1200px) {
@@ -2256,7 +2390,9 @@
     .ts-head h2 { font-size: 34px; }
     .ct-grid { grid-template-columns: 1fr; gap: 28px; }
     .ct-head h2 { font-size: 34px; }
-    .footer-cols { gap: 40px; }
+    .ft-cols { grid-template-columns: 1fr 1fr; gap: 34px; }
+    .ft-top { flex-direction: column; align-items: flex-start; gap: 22px; }
+    .ft-top h2 { font-size: 28px; }
   }
 
   @media (max-width: 768px) {
@@ -2330,8 +2466,9 @@
     .svc-shot { height: 160px; }
     .wrap { padding-left: 20px; padding-right: 20px; }
     .cta-band h2 { font-size: 28px; }
-    .footer-inner { flex-direction: column; }
-    .footer-cols { gap: 32px; }
+    .ft-cols { grid-template-columns: 1fr; gap: 30px; }
+    .ft-top h2 { font-size: 24px; }
+    .ft-bar-inner { font-size: 13px; }
   }
 </style>
 </head>
@@ -3063,32 +3200,72 @@
   </div>
 </section>
 
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track"><span class="marquee-item">Web dizajn</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Onlajn prodavnice</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Sajtovi po meri</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">SEO</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Održavanje</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Web dizajn</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Onlajn prodavnice</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Sajtovi po meri</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">SEO</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg><span class="marquee-item">Održavanje</span><svg class="marquee-sep" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg></div>
+</div>
+
 <footer>
   <div class="wrap">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="logo">entro.tech</div>
-        <p>Pravimo sajtove za male i srednje biznise koji žele više klijenata sa interneta.</p>
-      </div>
-      <div class="footer-cols">
-        <div class="footer-col">
-          <h4>Stranica</h4>
-          <a href="#usluge">Usluge</a>
-          <a href="#proces">Kako radimo</a>
-          <a href="#radovi">Radovi</a>
-          <a href="#faq">Pitanja</a>
-        </div>
-        <div class="footer-col">
-          <h4>Kontakt</h4>
-          <a href="#kontakt">Pošalji upit</a>
-          <a href="#">zdravo@entro.tech</a>
-          <a href="#">060 123 4567</a>
-        </div>
-      </div>
+
+    <div class="ft-top">
+      <h2>Hajde da se <span class="name">čujemo</span></h2>
+      <a href="#kontakt" class="btn-split">
+        <span>Kontaktirajte nas</span>
+        <span class="arrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="18" y2="12"></line><polyline points="13 7 18 12 13 17"></polyline></svg></span>
+      </a>
     </div>
-    <div class="footer-bottom">
-      <span>© 2024 entro.tech. Sva prava zadržana.</span>
-      <span>Beograd, Srbija</span>
+
+    <div class="ft-cols">
+
+      <div class="ft-col">
+        <a href="#" class="ft-brand">
+          <span class="logo-mark" aria-hidden="true">e</span>
+          <span class="logo">entro.tech</span>
+        </a>
+        <p class="ft-about">Pravimo sajtove za male i srednje biznise koji žele više klijenata sa interneta.</p>
+        <div class="ft-social">
+          <a href="#" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 8.2h-2a1 1 0 0 0-1 1v2.1h3l-.4 3h-2.6V22H9.4v-7.7H7.2v-3h2.2V9.2A4.2 4.2 0 0 1 13.6 5h1.9z"/></svg></a>
+          <a href="#" aria-label="X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.2 3h4.4l4 5.6L16.4 3h3.6l-6.2 7.6L21 21h-4.4l-4.3-6-5.1 6H3.6l6.8-8.1z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"></circle></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.9 4.9a1.95 1.95 0 1 1-3.9 0 1.95 1.95 0 0 1 3.9 0zM3.3 8.6h3.3V21H3.3zm6.4 0h3.1v1.7c.5-.9 1.8-1.9 3.6-1.9 2.7 0 4.6 1.7 4.6 5.3V21h-3.3v-6.7c0-1.8-.7-2.8-2.2-2.8-1.3 0-2 .8-2.3 1.7-.1.3-.2.7-.2 1.1V21H9.7z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.5 7.2a2.7 2.7 0 0 0-1.9-1.9C18.9 4.8 12 4.8 12 4.8s-6.9 0-8.6.5A2.7 2.7 0 0 0 1.5 7.2C1 8.9 1 12 1 12s0 3.1.5 4.8a2.7 2.7 0 0 0 1.9 1.9c1.7.5 8.6.5 8.6.5s6.9 0 8.6-.5a2.7 2.7 0 0 0 1.9-1.9c.5-1.7.5-4.8.5-4.8s0-3.1-.5-4.8zM9.8 15.3V8.7l5.7 3.3z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="ft-col">
+        <h4>Navigacija</h4>
+        <a href="#">Početna</a>
+        <a href="#usluge">Usluge</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#radovi">Radovi</a>
+        <a href="#cene">Cene</a>
+        <a href="#faq">Pitanja</a>
+      </div>
+
+      <div class="ft-col">
+        <h4>Kontakt</h4>
+        <a href="tel:0601234567">060 123 4567</a>
+        <a href="#">entro.tech</a>
+        <a href="mailto:zdravo@entro.tech">zdravo@entro.tech</a>
+        <span>Beograd, Srbija</span>
+      </div>
+
+      <div class="ft-col">
+        <h4>Budite u toku</h4>
+        <form class="ft-form" action="#" method="post">
+          <label for="njuzleter" class="sr-only">Imejl adresa</label>
+          <input type="email" id="njuzleter" name="njuzleter" placeholder="Imejl adresa" required>
+          <button type="submit" aria-label="Prijavi se"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2.5 21.5L22 12 2.5 2.5 2.5 10l13 2-13 2z"></path></svg></button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="ft-bar">
+    <div class="wrap ft-bar-inner">
+      <span>© 2026 <b>entro.tech</b>. Sva prava zadržana.</span>
+      <span><a href="#">Uslovi korišćenja</a> | <a href="#">Politika privatnosti</a></span>
     </div>
   </div>
 </footer>
