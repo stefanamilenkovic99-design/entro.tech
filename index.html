@@ -1538,24 +1538,205 @@
   }
 
   /* ---------- FAQ ---------- */
-  .faq-list {
-    max-width: 760px;
+  #faq { background: #fff; }
+
+  .fq-head {
+    text-align: center;
+    margin-bottom: 42px;
   }
 
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding-top: 24px;
-    padding-bottom: 24px;
+  .fq-eyebrow { justify-content: center; }
+
+  .fq-head h2 {
+    margin-top: 14px;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink-900);
   }
 
-  .faq-item h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+  .fq-head h2 .name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
   }
 
-  .faq-item p {
-    color: var(--ink-soft);
-    font-size: 15px;
+  .fq-head h2 .nowrap { white-space: nowrap; }
+
+  .fq-head h2 .spark-dark {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-left: 3px;
+    vertical-align: 21px;
+    color: var(--ink-900);
+  }
+
+  .fq-grid {
+    display: grid;
+    grid-template-columns: 1.9fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* --- akordeon --- */
+  .fq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .fq-item {
+    background: #f5f5f2;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: background 0.25s ease;
+  }
+
+  .fq-item.open { background: var(--orange); }
+
+  .fq-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .fq-q {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink-900);
+  }
+
+  .fq-icon {
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    flex: none;
+    color: var(--ink-900);
+  }
+
+  .fq-icon line { transition: opacity 0.25s ease; }
+
+  .fq-item.open .fq-q,
+  .fq-item.open .fq-icon { color: #fff; }
+
+  .fq-item.open .fq-icon .v { opacity: 0; }
+
+  .fq-panel {
+    display: none;
+    padding: 0 20px 20px;
+  }
+
+  .fq-item.open .fq-panel { display: block; }
+
+  .fq-panel p {
+    max-width: none;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  /* --- desna kolona --- */
+  .fq-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .fq-ask {
+    background: var(--ink-900);
+    border-radius: 16px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .fq-ask-body { padding: 28px 24px 30px; }
+
+  .fq-bubbles .b-orange { fill: var(--orange); }
+
+  .fq-ask h3 {
+    margin-top: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: #fff;
+  }
+
+  .fq-ask p {
+    margin: 10px auto 0;
+    max-width: 30ch;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #9d9d96;
+  }
+
+  .btn-ask {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 26px;
+    border-radius: 999px;
+    background: var(--orange);
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .btn-ask:hover { background: var(--orange-dark); }
+
+  .fq-ask-strip {
+    height: 46px;
+    background-color: var(--orange);
+    background-image: repeating-radial-gradient(circle at 118% 134%, rgba(255,255,255,0.12) 0 2px, rgba(255,255,255,0) 2px 18px);
+  }
+
+  .fq-call {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #f5f5f2;
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .fq-call-ico {
+    width: 46px;
+    height: 46px;
+    flex: none;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--orange);
+    display: grid;
+    place-items: center;
+  }
+
+  .fq-call-label,
+  .fq-call-num {
+    display: block;
+    font-size: 12px;
+    color: #8a8a82;
+  }
+
+  .fq-call-title {
+    display: block;
+    margin: 2px 0 3px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink-900);
   }
 
   /* ---------- CTA BAND ---------- */
@@ -1744,6 +1925,38 @@
   }
 
   .ts-dots button.is-active { background: var(--orange); }
+
+  .ts-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .ts-nav button {
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #e2e2d8;
+    color: var(--ink-900);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  .ts-nav button:hover:not(:disabled) {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+  }
+
+  .ts-nav button:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
 
   /* ---------- KONTAKT ---------- */
   #kontakt { background: #f3f3f0; }
@@ -2038,6 +2251,8 @@
     .wk-note { justify-self: start; padding-bottom: 0; }
     .wk-pin { height: 300vh; --card-w: min(84vw, 380px); }
     .why-grid { grid-template-columns: 1fr; }
+    .fq-head h2 { font-size: 34px; }
+    .fq-grid { grid-template-columns: 1fr; }
     .ts-head h2 { font-size: 34px; }
     .ct-grid { grid-template-columns: 1fr; gap: 28px; }
     .ct-head h2 { font-size: 34px; }
@@ -2060,6 +2275,10 @@
     .marquee-item { font-size: 20px; padding: 0 20px; }
     .section-head h2 { font-size: 28px; }
     .process-list { grid-template-columns: 1fr; }
+    .fq-head h2 { font-size: 28px; }
+    .fq-trigger { gap: 12px; padding: 16px; }
+    .fq-q { font-size: 15px; }
+    .fq-panel { padding: 0 16px 16px; }
     .ts-head h2 { font-size: 28px; }
     .ts-card { flex: 0 0 100%; padding: 22px 20px 24px; }
     .ts-avatar { width: 66px; height: 66px; font-size: 16px; }
@@ -2068,6 +2287,7 @@
     .ts-rate svg { width: 16px; height: 16px; }
     .ts-mark { width: 46px; height: 46px; font-size: 27px; padding-top: 10px; }
     .ts-text { font-size: 15px; margin-top: 20px; }
+    .ts-nav button { width: 42px; height: 42px; }
     .ct-head h2 { font-size: 28px; }
     .ct-fields { grid-template-columns: 1fr; gap: 16px; }
     .ct-card-body { padding: 24px 22px 28px; }
@@ -2630,33 +2850,102 @@
 
     <div class="ts-dots" role="tablist" aria-label="Utisci klijenata"></div>
 
+    <div class="ts-nav">
+      <button class="ts-prev" type="button" aria-label="Prethodni utisak"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="12" x2="6" y2="12"></line><polyline points="11 7 6 12 11 17"></polyline></svg></button>
+      <button class="ts-next" type="button" aria-label="Sledeći utisak"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" y1="12" x2="18" y2="12"></line><polyline points="13 7 18 12 13 17"></polyline></svg></button>
+    </div>
+
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Pitanja</span>
-      <h2>Ono što nas ljudi najčešće pitaju</h2>
-      <p>Ako nešto ostane nejasno, pišite nam direktno.</p>
+
+    <div class="fq-head">
+      <p class="svc-eyebrow fq-eyebrow">Česta pitanja</p>
+      <h2>Imate pitanje? <span class="name">Evo <span class="nowrap">odgovora.</span></span><svg class="spark-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg></h2>
     </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3>Koliko traje izrada sajta?</h3>
-        <p>Za manji prezentacioni sajt računajte dve do tri nedelje od trenutka kad se dogovorimo oko sadržaja i slika.</p>
+
+    <div class="fq-grid">
+
+      <div class="fq-list">
+        <div class="fq-item">
+          <button class="fq-trigger" type="button" aria-expanded="false" aria-controls="fq-p1">
+            <span class="fq-q">Koliko traje izrada sajta?</span>
+            <svg class="fq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line class="v" x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="fq-panel" id="fq-p1">
+            <p>Za manji prezentacioni sajt računajte dve do tri nedelje od trenutka kad se dogovorimo oko sadržaja i slika.</p>
+          </div>
+        </div>
+        <div class="fq-item open">
+          <button class="fq-trigger" type="button" aria-expanded="true" aria-controls="fq-p2">
+            <span class="fq-q">Mogu li sam da menjam sadržaj posle?</span>
+            <svg class="fq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line class="v" x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="fq-panel" id="fq-p2">
+            <p>Da. Postavljamo sistem gde možete da promenite tekst, cene i slike bez ijedne linije koda.</p>
+          </div>
+        </div>
+        <div class="fq-item">
+          <button class="fq-trigger" type="button" aria-expanded="false" aria-controls="fq-p3">
+            <span class="fq-q">Šta ako već imam sajt?</span>
+            <svg class="fq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line class="v" x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="fq-panel" id="fq-p3">
+            <p>Pogledamo šta imate i kažemo iskreno da li ima smisla da ga sredimo ili da krenemo ispočetka.</p>
+          </div>
+        </div>
+        <div class="fq-item">
+          <button class="fq-trigger" type="button" aria-expanded="false" aria-controls="fq-p4">
+            <span class="fq-q">Koliko košta izrada sajta?</span>
+            <svg class="fq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line class="v" x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="fq-panel" id="fq-p4">
+            <p>Zavisi od obima posla. Posle prvog razgovora šaljemo tačnu ponudu, bez sitnih slova i naknadnih iznenađenja.</p>
+          </div>
+        </div>
+        <div class="fq-item">
+          <button class="fq-trigger" type="button" aria-expanded="false" aria-controls="fq-p5">
+            <span class="fq-q">Da li radite održavanje posle lansiranja?</span>
+            <svg class="fq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line class="v" x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="fq-panel" id="fq-p5">
+            <p>Da. Posle lansiranja ne nestajemo - javite se kad treba da se promeni cena, doda tekst ili slika, i sredimo to isti dan.</p>
+          </div>
+        </div>
+        <div class="fq-item">
+          <button class="fq-trigger" type="button" aria-expanded="false" aria-controls="fq-p6">
+            <span class="fq-q">Ko konkretno radi na mom sajtu?</span>
+            <svg class="fq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><line class="v" x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="fq-panel" id="fq-p6">
+            <p>Nas dvoje. Jedno crta, drugo kodira, a oboje pričamo sa vama od prvog poziva do lansiranja - nema prosleđivanja poruka kroz tim.</p>
+          </div>
+        </div>
       </div>
-      <div class="faq-item">
-        <h3>Mogu li sam da menjam sadržaj posle?</h3>
-        <p>Da. Postavljamo sistem gde možete da promenite tekst, cene i slike bez ijedne linije koda.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Šta ako već imam sajt?</h3>
-        <p>Pogledamo šta imate i kažemo iskreno da li ima smisla da ga sredimo ili da krenemo ispočetka.</p>
-      </div>
-      <div class="faq-item">
-        <h3>Koliko košta izrada sajta?</h3>
-        <p>Zavisi od obima posla. Posle prvog razgovora šaljemo tačnu ponudu, bez sitnih slova i naknadnih iznenađenja.</p>
-      </div>
+
+      <aside class="fq-aside">
+        <div class="fq-ask">
+          <div class="fq-ask-body">
+            <svg class="fq-bubbles" width="56" height="48" viewBox="0 0 56 48" fill="none" aria-hidden="true"><path fill="#ffffff" d="M34 8h16a6 6 0 0 1 6 6v14a6 6 0 0 1-6 6h-2v8l-9-8h-5a6 6 0 0 1-6-6V14a6 6 0 0 1 6-6z"/><path class="b-orange" d="M7 0h18a7 7 0 0 1 7 7v11a7 7 0 0 1-7 7H16l-9 8v-8a7 7 0 0 1-7-7V7a7 7 0 0 1 7-7z"/><circle cx="8" cy="12.5" r="2.3" fill="#ffffff"/><circle cx="14.5" cy="12.5" r="2.3" fill="#ffffff"/><circle cx="21" cy="12.5" r="2.3" fill="#ffffff"/></svg>
+            <h3>Imate pitanje kojeg nema na listi? Pišite nam.</h3>
+            <p>Vaša pitanja, naši odgovori. Javljamo se u roku od dan-dva.</p>
+            <a href="#kontakt" class="btn-ask">Kontaktirajte nas</a>
+          </div>
+          <div class="fq-ask-strip" aria-hidden="true"></div>
+        </div>
+
+        <div class="fq-call">
+          <span class="fq-call-ico"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.5 16.9v2.9a2 2 0 0 1-2.2 2 19.6 19.6 0 0 1-8.5-3 19.3 19.3 0 0 1-6-6 19.6 19.6 0 0 1-3-8.6 2 2 0 0 1 2-2.2h2.9a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L7.6 9.6a15.8 15.8 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"></path></svg></span>
+          <div>
+            <span class="fq-call-label">Vaša ideja, naša izrada</span>
+            <span class="fq-call-title">Dostupni 09-18h</span>
+            <a class="fq-call-num" href="tel:0601234567">060 123 4567</a>
+          </div>
+        </div>
+      </aside>
+
     </div>
   </div>
 </section>
@@ -2813,6 +3102,21 @@
     hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
 
+  document.querySelectorAll('.fq-trigger').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      const item = trigger.closest('.fq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.fq-item').forEach(function (other) {
+        other.classList.remove('open');
+        other.querySelector('.fq-trigger').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
   const tsView = document.querySelector('.ts-viewport');
   const tsDots = document.querySelector('.ts-dots');
 
@@ -2824,13 +3128,32 @@
       return tsCards.length > 1 ? tsCards[1].offsetLeft - tsCards[0].offsetLeft : 0;
     };
 
-    const tsSync = function () {
+    const tsPrev = document.querySelector('.ts-prev');
+    const tsNext = document.querySelector('.ts-next');
+
+    const tsIndex = function () {
       const step = tsStep();
       const i = step ? Math.round(tsView.scrollLeft / step) : 0;
-      dots.forEach(function (d, j) {
-        d.classList.toggle('is-active', j === Math.min(i, dots.length - 1));
-      });
+      return Math.min(Math.max(i, 0), Math.max(0, dots.length - 1));
     };
+
+    const tsSync = function () {
+      const i = tsIndex();
+      dots.forEach(function (d, j) {
+        d.classList.toggle('is-active', j === i);
+      });
+      if (tsPrev) tsPrev.disabled = i <= 0;
+      if (tsNext) tsNext.disabled = i >= dots.length - 1;
+    };
+
+    const tsGo = function (delta) {
+      const step = tsStep();
+      const target = Math.min(Math.max(tsIndex() + delta, 0), Math.max(0, dots.length - 1));
+      tsView.scrollTo({ left: target * step, behavior: 'smooth' });
+    };
+
+    if (tsPrev) tsPrev.addEventListener('click', function () { tsGo(-1); });
+    if (tsNext) tsNext.addEventListener('click', function () { tsGo(1); });
 
     const tsBuild = function () {
       const step = tsStep();
