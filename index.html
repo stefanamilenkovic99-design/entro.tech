@@ -1581,6 +1581,170 @@
     max-width: 620px;
   }
 
+  /* ---------- UTISCI ---------- */
+  #utisci { background: #fff; }
+
+  .ts-head {
+    text-align: center;
+    margin-bottom: 42px;
+  }
+
+  .ts-eyebrow { justify-content: center; }
+
+  .ts-head h2 {
+    margin-top: 14px;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink-900);
+  }
+
+  .ts-head h2 .name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  .ts-head h2 .nowrap { white-space: nowrap; }
+
+  .ts-head h2 .spark-dark {
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    margin-left: 3px;
+    vertical-align: 21px;
+    color: var(--ink-900);
+  }
+
+  .ts-viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .ts-viewport::-webkit-scrollbar { display: none; }
+
+  .ts-track {
+    display: flex;
+    gap: 24px;
+  }
+
+  .ts-card {
+    flex: 0 0 calc(50% - 12px);
+    scroll-snap-align: start;
+    background: #f5f5f2;
+    border-radius: 16px;
+    padding: 26px 28px 30px;
+  }
+
+  .ts-top {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .ts-avatar {
+    width: 84px;
+    height: 84px;
+    flex: none;
+    border-radius: 50%;
+    background: var(--ph-bg);
+    border: 1px dashed var(--ph-line);
+    display: grid;
+    place-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #9a9a90;
+  }
+
+  .ts-who {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .ts-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink-900);
+  }
+
+  .ts-role {
+    font-size: 14px;
+    color: #82827a;
+  }
+
+  .ts-rate {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 5px;
+  }
+
+  .ts-rate svg {
+    width: 19px;
+    height: 19px;
+    flex: none;
+    color: var(--orange);
+  }
+
+  .ts-score {
+    margin-left: 6px;
+    font-size: 15px;
+    color: var(--ink-900);
+  }
+
+  .ts-mark {
+    margin-left: auto;
+    width: 58px;
+    height: 58px;
+    flex: none;
+    border-radius: 50%;
+    background: #fff;
+    display: grid;
+    place-items: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 0;
+    padding-top: 12px;
+    color: var(--orange);
+  }
+
+  .ts-text {
+    margin-top: 24px;
+    max-width: none;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  .ts-dots {
+    display: flex;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 32px;
+  }
+
+  .ts-dots button {
+    width: 34px;
+    height: 6px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: #e4e4dc;
+    cursor: pointer;
+    transition: background 0.25s ease;
+  }
+
+  .ts-dots button.is-active { background: var(--orange); }
+
   /* ---------- KONTAKT ---------- */
   #kontakt { background: #f3f3f0; }
 
@@ -1874,6 +2038,7 @@
     .wk-note { justify-self: start; padding-bottom: 0; }
     .wk-pin { height: 300vh; --card-w: min(84vw, 380px); }
     .why-grid { grid-template-columns: 1fr; }
+    .ts-head h2 { font-size: 34px; }
     .ct-grid { grid-template-columns: 1fr; gap: 28px; }
     .ct-head h2 { font-size: 34px; }
     .footer-cols { gap: 40px; }
@@ -1895,6 +2060,14 @@
     .marquee-item { font-size: 20px; padding: 0 20px; }
     .section-head h2 { font-size: 28px; }
     .process-list { grid-template-columns: 1fr; }
+    .ts-head h2 { font-size: 28px; }
+    .ts-card { flex: 0 0 100%; padding: 22px 20px 24px; }
+    .ts-avatar { width: 66px; height: 66px; font-size: 16px; }
+    .ts-top { gap: 14px; }
+    .ts-name { font-size: 17px; }
+    .ts-rate svg { width: 16px; height: 16px; }
+    .ts-mark { width: 46px; height: 46px; font-size: 27px; padding-top: 10px; }
+    .ts-text { font-size: 15px; margin-top: 20px; }
     .ct-head h2 { font-size: 28px; }
     .ct-fields { grid-template-columns: 1fr; gap: 16px; }
     .ct-card-body { padding: 24px 22px 28px; }
@@ -2382,6 +2555,84 @@
   </div>
 </section>
 
+<section id="utisci">
+  <div class="wrap">
+
+    <div class="ts-head">
+      <p class="svc-eyebrow ts-eyebrow">Utisci klijenata</p>
+      <h2>Šta kažu <span class="name">naši <span class="nowrap">klijenti</span></span><svg class="spark-dark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5c1 6 4.5 9.5 10.5 10.5-6 1-9.5 4.5-10.5 10.5-1-6-4.5-9.5-10.5-10.5C7.5 11 11 7.5 12 1.5Z"/></svg></h2>
+    </div>
+
+    <div class="ts-viewport">
+      <div class="ts-track">
+        <article class="ts-card">
+          <div class="ts-top">
+            <span class="ts-avatar" aria-hidden="true">AD</span>
+            <div class="ts-who">
+              <span class="ts-name">Auto škola Dule</span>
+              <span class="ts-role">Prezentacioni sajt, Beograd</span>
+              <span class="ts-rate"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><span class="ts-score">5.0</span></span>
+            </div>
+            <span class="ts-mark" aria-hidden="true">&ldquo;</span>
+          </div>
+          <p class="ts-text">Pre sajta su nas non-stop zvali da pitaju koliko košta i kako se upisuje. Sad to piše na prvom ekranu, pa se javljaju već spremni.</p>
+        </article>
+        <article class="ts-card">
+          <div class="ts-top">
+            <span class="ts-avatar" aria-hidden="true">PL</span>
+            <div class="ts-who">
+              <span class="ts-name">Pet Land</span>
+              <span class="ts-role">Veterinarska ambulanta, Vidikovac</span>
+              <span class="ts-rate"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><span class="ts-score">5.0</span></span>
+            </div>
+            <span class="ts-mark" aria-hidden="true">&ldquo;</span>
+          </div>
+          <p class="ts-text">Broj telefona i radno vreme stoje na svakoj strani. Ljudi zovu kad im je pas bolestan, a ne traže po sajtu gde smo.</p>
+        </article>
+        <article class="ts-card">
+          <div class="ts-top">
+            <span class="ts-avatar" aria-hidden="true">MS</span>
+            <div class="ts-who">
+              <span class="ts-name">Medar stolarija</span>
+              <span class="ts-role">Nameštaj po meri, Smederevo</span>
+              <span class="ts-rate"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><span class="ts-score">5.0</span></span>
+            </div>
+            <span class="ts-mark" aria-hidden="true">&ldquo;</span>
+          </div>
+          <p class="ts-text">Galerija radova je uradila posao. Kupci sad dolaze sa slikom onoga što su videli i odmah pričamo o merama.</p>
+        </article>
+        <article class="ts-card">
+          <div class="ts-top">
+            <span class="ts-avatar" aria-hidden="true">RA</span>
+            <div class="ts-who">
+              <span class="ts-name">Riva Atelier</span>
+              <span class="ts-role">Iznajmljivanje haljina</span>
+              <span class="ts-rate"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><span class="ts-score">5.0</span></span>
+            </div>
+            <span class="ts-mark" aria-hidden="true">&ldquo;</span>
+          </div>
+          <p class="ts-text">Devojke biraju haljinu na telefonu, uveče, i rezervišu termin iz dva klika. Manje poruka za dogovaranje, više dolazaka.</p>
+        </article>
+        <article class="ts-card">
+          <div class="ts-top">
+            <span class="ts-avatar" aria-hidden="true">FJ</span>
+            <div class="ts-who">
+              <span class="ts-name">Foto Jocković</span>
+              <span class="ts-role">Foto radnja, Beograd</span>
+              <span class="ts-rate"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.6l2.9 5.9 6.5.95-4.7 4.6 1.1 6.45L12 17.45 6.2 20.5l1.1-6.45-4.7-4.6 6.5-.95z"/></svg><span class="ts-score">5.0</span></span>
+            </div>
+            <span class="ts-mark" aria-hidden="true">&ldquo;</span>
+          </div>
+          <p class="ts-text">Adresa i to da radimo za isti dan su prvo što se vidi. Otkad je sajt gore, ljudi ulaze i znaju šta traže.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="ts-dots" role="tablist" aria-label="Utisci klijenata"></div>
+
+  </div>
+</section>
+
 <section id="faq">
   <div class="wrap">
     <div class="section-head">
@@ -2561,6 +2812,48 @@
     const isOpen = mobileMenu.classList.toggle('open');
     hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   });
+
+  const tsView = document.querySelector('.ts-viewport');
+  const tsDots = document.querySelector('.ts-dots');
+
+  if (tsView && tsDots) {
+    const tsCards = Array.from(tsView.querySelectorAll('.ts-card'));
+    let dots = [];
+
+    const tsStep = function () {
+      return tsCards.length > 1 ? tsCards[1].offsetLeft - tsCards[0].offsetLeft : 0;
+    };
+
+    const tsSync = function () {
+      const step = tsStep();
+      const i = step ? Math.round(tsView.scrollLeft / step) : 0;
+      dots.forEach(function (d, j) {
+        d.classList.toggle('is-active', j === Math.min(i, dots.length - 1));
+      });
+    };
+
+    const tsBuild = function () {
+      const step = tsStep();
+      const n = step ? Math.round((tsView.scrollWidth - tsView.clientWidth) / step) + 1 : 1;
+      tsDots.innerHTML = '';
+      dots = [];
+      for (let i = 0; i < n; i++) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Prikaži utisak ' + (i + 1));
+        b.addEventListener('click', function () {
+          tsView.scrollTo({ left: i * tsStep(), behavior: 'smooth' });
+        });
+        tsDots.appendChild(b);
+        dots.push(b);
+      }
+      tsSync();
+    };
+
+    tsView.addEventListener('scroll', tsSync, { passive: true });
+    window.addEventListener('resize', tsBuild);
+    tsBuild();
+  }
 
   const wkPin = document.querySelector('.wk-pin');
   const wkTrack = document.querySelector('.wk-track');
