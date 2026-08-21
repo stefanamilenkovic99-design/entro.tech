@@ -1119,42 +1119,6 @@
     place-items: center;
   }
 
-  /* ---------- PROCES ---------- */
-  .process-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-  }
-
-  .process-item {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .process-num {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--ink);
-    background: var(--accent);
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .process-item h3 {
-    font-size: 18px;
-  }
-
-  .process-item p {
-    font-size: 14.5px;
-    color: var(--ink-soft);
-  }
-
   /* ---------- RADOVI (horizontalni pin) ---------- */
   #radovi {
     background: #fff;
@@ -1517,26 +1481,6 @@
     color: #fff;
   }
 
-  /* ---------- ZASTO MI ---------- */
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-
-  .why-item h3 {
-    font-size: 19px;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .why-item p {
-    color: var(--ink-soft);
-    font-size: 15px;
-  }
-
   /* ---------- FAQ ---------- */
   #faq { background: #fff; }
 
@@ -1739,36 +1683,10 @@
     color: var(--ink-900);
   }
 
-  /* ---------- CTA BAND ---------- */
-  .cta-band {
-    background: var(--ink);
-    color: var(--bg);
-    border-top: none;
-  }
-
-  .cta-band h2 {
-    color: var(--bg);
-    font-size: 36px;
-    margin-bottom: 16px;
-  }
-
-  .cta-band p {
-    color: #cfcfc8;
-    font-size: 17px;
-    margin-bottom: 32px;
-  }
-
-  .cta-band-inner {
-    max-width: 620px;
-  }
-
   /* ---------- UTISCI ---------- */
   #utisci { background: #fff; }
 
-  .ts-head {
-    text-align: center;
-    margin-bottom: 42px;
-  }
+  .ts-head { text-align: center; margin-bottom: 42px; }
 
   .ts-eyebrow { justify-content: center; }
 
@@ -1807,10 +1725,7 @@
 
   .ts-viewport::-webkit-scrollbar { display: none; }
 
-  .ts-track {
-    display: flex;
-    gap: 24px;
-  }
+  .ts-track { display: flex; gap: 24px; }
 
   .ts-card {
     flex: 0 0 calc(50% - 12px);
@@ -1820,11 +1735,7 @@
     padding: 26px 28px 30px;
   }
 
-  .ts-top {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
+  .ts-top { display: flex; align-items: center; gap: 18px; }
 
   .ts-avatar {
     width: 84px;
@@ -1841,12 +1752,7 @@
     color: #9a9a90;
   }
 
-  .ts-who {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
+  .ts-who { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
 
   .ts-name {
     font-family: 'Space Grotesk', sans-serif;
@@ -1856,30 +1762,13 @@
     color: var(--ink-900);
   }
 
-  .ts-role {
-    font-size: 14px;
-    color: #82827a;
-  }
+  .ts-role { font-size: 14px; color: #82827a; }
 
-  .ts-rate {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    margin-top: 5px;
-  }
+  .ts-rate { display: flex; align-items: center; gap: 4px; margin-top: 5px; }
 
-  .ts-rate svg {
-    width: 19px;
-    height: 19px;
-    flex: none;
-    color: var(--orange);
-  }
+  .ts-rate svg { width: 19px; height: 19px; flex: none; color: var(--orange); }
 
-  .ts-score {
-    margin-left: 6px;
-    font-size: 15px;
-    color: var(--ink-900);
-  }
+  .ts-score { margin-left: 6px; font-size: 15px; color: var(--ink-900); }
 
   .ts-mark {
     margin-left: auto;
@@ -1906,12 +1795,7 @@
     color: var(--ink-soft);
   }
 
-  .ts-dots {
-    display: flex;
-    justify-content: center;
-    gap: 7px;
-    margin-top: 32px;
-  }
+  .ts-dots { display: flex; justify-content: center; gap: 7px; margin-top: 32px; }
 
   .ts-dots button {
     width: 34px;
@@ -1926,12 +1810,7 @@
 
   .ts-dots button.is-active { background: var(--orange); }
 
-  .ts-nav {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 22px;
-  }
+  .ts-nav { display: flex; justify-content: center; gap: 12px; margin-top: 22px; }
 
   .ts-nav button {
     width: 46px;
@@ -1953,10 +1832,7 @@
     color: #fff;
   }
 
-  .ts-nav button:disabled {
-    opacity: 0.4;
-    cursor: default;
-  }
+  .ts-nav button:disabled { opacity: 0.4; cursor: default; }
 
   /* ---------- KONTAKT ---------- */
   #kontakt { background: #f3f3f0; }
@@ -2376,7 +2252,6 @@
     .svc-head { grid-template-columns: 1fr; align-items: start; gap: 20px; }
     .svc-head .svc-intro { justify-self: start; padding-bottom: 0; }
     .svc-head h2 { font-size: 34px; }
-    .process-list { grid-template-columns: repeat(2, 1fr); }
     .pr-head { flex-direction: column; align-items: flex-start; gap: 26px; }
     .pr-head h2 { font-size: 34px; }
     .pr-grid { grid-template-columns: 1fr; gap: 20px; max-width: 460px; margin: 0 auto; }
@@ -2384,7 +2259,6 @@
     .wk-head h2 { font-size: 34px; }
     .wk-note { justify-self: start; padding-bottom: 0; }
     .wk-pin { height: 300vh; --card-w: min(84vw, 380px); }
-    .why-grid { grid-template-columns: 1fr; }
     .fq-head h2 { font-size: 34px; }
     .fq-grid { grid-template-columns: 1fr; }
     .ts-head h2 { font-size: 34px; }
@@ -2410,7 +2284,6 @@
     .btn-pill .arrow { width: 26px; height: 26px; }
     .marquee-item { font-size: 20px; padding: 0 20px; }
     .section-head h2 { font-size: 28px; }
-    .process-list { grid-template-columns: 1fr; }
     .fq-head h2 { font-size: 28px; }
     .fq-trigger { gap: 12px; padding: 16px; }
     .fq-q { font-size: 15px; }
@@ -2465,7 +2338,6 @@
     .svc-panel { padding: 0 20px 26px 20px; }
     .svc-shot { height: 160px; }
     .wrap { padding-left: 20px; padding-right: 20px; }
-    .cta-band h2 { font-size: 28px; }
     .ft-cols { grid-template-columns: 1fr; gap: 30px; }
     .ft-top h2 { font-size: 24px; }
     .ft-bar-inner { font-size: 13px; }
@@ -2711,38 +2583,6 @@
   </div>
 </section>
 
-<section id="proces">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Kako radimo</span>
-      <h2>Četiri koraka, bez iznenađenja</h2>
-      <p>Znate tačno šta se dešava u svakom trenutku, koliko to traje i koliko košta pre nego što bilo šta potpišete.</p>
-    </div>
-    <div class="process-list">
-      <div class="process-item">
-        <div class="process-num">1</div>
-        <h3>Razgovor</h3>
-        <p>Popričamo o tome čime se bavite i šta vam treba. Bez tehničkog žargona, na normalnom jeziku.</p>
-      </div>
-      <div class="process-item">
-        <div class="process-num">2</div>
-        <h3>Predlog i rok</h3>
-        <p>Dobijate konkretan plan, cenu i datum kad je sajt gotov. Piše crno na belo.</p>
-      </div>
-      <div class="process-item">
-        <div class="process-num">3</div>
-        <h3>Dizajn i izrada</h3>
-        <p>Radimo, šaljemo vam napredak usput, a vi kažete šta da promenimo dok je još lako promeniti.</p>
-      </div>
-      <div class="process-item">
-        <div class="process-num">4</div>
-        <h3>Lansiranje</h3>
-        <p>Sajt ide uživo. Pokažemo vam kako da sami menjate tekst i slike ako to poželite.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section id="radovi">
   <div class="wrap wk-head">
     <div>
@@ -2883,30 +2723,6 @@
           <li><span class="pr-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 13 10 18 19 7"></polyline></svg></span>Katalog proizvoda i korpa</li>
           <li><span class="pr-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="5 13 10 18 19 7"></polyline></svg></span>Održavanje prvih šest meseci</li>
         </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Zašto mi</span>
-      <h2>Tri stvari koje nas razlikuju</h2>
-      <p>Ne obećavamo čuda. Obećavamo da ćemo raditi ono što smo dogovorili, na vreme.</p>
-    </div>
-    <div class="why-grid">
-      <div class="why-item">
-        <h3>Pišete direktno nama</h3>
-        <p>Nema tima od pet ljudi koji prosleđuje vašu poruku dalje. Pišete nama, mi vam odgovaramo.</p>
-      </div>
-      <div class="why-item">
-        <h3>Rok je rok</h3>
-        <p>Kad kažemo da je sajt gotov za tri nedelje, to i mislimo. Ako kasnimo, javljamo se pre roka, ne posle.</p>
-      </div>
-      <div class="why-item">
-        <h3>Objašnjavamo normalnim jezikom</h3>
-        <p>Kad vam kažemo šta radimo i zašto, razumećete to bez guglanja pojmova posle razgovora.</p>
       </div>
     </div>
   </div>
@@ -3083,16 +2899,6 @@
         </div>
       </aside>
 
-    </div>
-  </div>
-</section>
-
-<section class="cta-band">
-  <div class="wrap">
-    <div class="cta-band-inner">
-      <h2>Popričajmo o vašem sajtu</h2>
-      <p>Zakažite kratak poziv od dvadesetak minuta. Bez obaveze da odmah nešto potpišete.</p>
-      <a href="#kontakt" class="btn">Zakaži poziv</a>
     </div>
   </div>
 </section>
